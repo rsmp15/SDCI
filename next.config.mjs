@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
+  basePath: '/SDCI',
   typescript: {
     ignoreBuildErrors: true,
   },
