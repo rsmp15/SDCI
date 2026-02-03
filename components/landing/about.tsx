@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { Quote } from "lucide-react"
+import { getAssetPath } from "@/lib/paths"
 
 export function About() {
     return (
@@ -53,7 +54,7 @@ export function About() {
                             <div className="flex flex-col items-center text-center space-y-4">
                                 <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-[var(--color-gold)] shadow-lg mb-4">
                                     <Image
-                                        src="/director.jpg"
+                                        src={getAssetPath("/director.jpg")}
                                         alt="Er. Sudhanshu Shekhawat"
                                         fill
                                         className="object-cover"

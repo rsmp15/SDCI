@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 import { ZoomIn } from "lucide-react"
+import { getAssetPath } from "@/lib/paths"
 
 // Updated gallery data with safe filenames
 // We have 28 images renamed to image-1.jpg through image-28.jpg
@@ -88,7 +89,7 @@ export default function GalleryPage() {
                           <div className="relative w-full aspect-[4/3]">
                             <div
                               className="absolute inset-0 bg-gray-200 transition-transform duration-500 group-hover:scale-110"
-                              style={{ backgroundImage: `url('${image.src}')`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+                              style={{ backgroundImage: `url('${getAssetPath(image.src)}')`, backgroundSize: 'cover', backgroundPosition: 'center' }}
                             />
                           </div>
                           <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300" />
@@ -111,7 +112,7 @@ export default function GalleryPage() {
                           <div
                             className="w-full h-full"
                             style={{
-                              backgroundImage: `url('${image.src}')`,
+                              backgroundImage: `url('${getAssetPath(image.src)}')`,
                               backgroundSize: 'contain',
                               backgroundPosition: 'center',
                               backgroundRepeat: 'no-repeat'

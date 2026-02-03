@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Menu, X, ChevronDown, Shield } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { getAssetPath } from "@/lib/paths"
 
 const navItems = [
   { name: "Home", href: "#" },
@@ -21,7 +22,7 @@ const navItems = [
   { name: "Result", href: "#results" },
   { name: "Gallery", href: "#gallery" },
   { name: "Contact", href: "#contact" },
-  { name: "Prospectus", href: "/SDCI_pamphlet.jpeg", target: "_blank" },
+  { name: "Prospectus", href: getAssetPath("/SDCI_pamphlet.jpeg"), target: "_blank" },
 ]
 
 export default function Header() {

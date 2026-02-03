@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Download, Rocket } from "lucide-react"
+import { getAssetPath } from "@/lib/paths"
 
 export function AdmissionCTA() {
     return (
@@ -23,7 +24,7 @@ export function AdmissionCTA() {
                             <Rocket className="w-5 h-5 mr-2" /> Apply Online
                         </Button>
                     </Link>
-                    <Link href="/SDCI_pamphlet.jpeg" target="_blank">
+                    <Link href={getAssetPath("/SDCI_pamphlet.jpeg")} target="_blank">
                         <Button size="lg" variant="outline" className="border-2 border-[var(--color-navy)] text-[var(--color-navy)] hover:bg-[var(--color-navy)] hover:text-white font-bold text-lg px-8 py-6">
                             <Download className="w-5 h-5 mr-2" /> Download Prospectus
                         </Button>

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { CheckCircle2, Shield, Users } from "lucide-react"
+import { getAssetPath } from "@/lib/paths"
 
 export function Hero() {
     return (
@@ -11,7 +12,7 @@ export function Hero() {
             <div
                 className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
                 style={{
-                    backgroundImage: "url('/hero-bg.jpg')",
+                    backgroundImage: `url('${getAssetPath("/hero-bg.jpg")}')`,
                 }}
             >
                 <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/80 to-navy/40 mix-blend-multiply" />

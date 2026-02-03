@@ -2,6 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Facebook, Instagram, Youtube, Phone, MapPin, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { getAssetPath } from "@/lib/paths"
 
 export function Footer() {
     return (
@@ -12,7 +13,7 @@ export function Footer() {
                     <div className="space-y-6">
                         <div className="flex items-center gap-3">
                             <Image
-                                src="/logo.jpg"
+                                src={getAssetPath("/logo.jpg")}
                                 alt="SDCI Logo"
                                 width={60}
                                 height={60}
@@ -65,7 +66,7 @@ export function Footer() {
                             {['Download Brochure', 'Model Question Papers', 'Previous Year Answer Keys', 'Entrance Test Syllabus', 'Privacy Policy', 'Terms & Conditions'].map((item) => (
                                 <li key={item}>
                                     <Link
-                                        href={item === 'Download Brochure' ? '/SDCI_pamphlet.jpeg' : '#'}
+                                        href={item === 'Download Brochure' ? getAssetPath('/SDCI_pamphlet.jpeg') : '#'}
                                         target={item === 'Download Brochure' ? '_blank' : undefined}
                                         className="text-sm hover:text-[var(--color-gold)] transition-colors flex items-center gap-2"
                                     >

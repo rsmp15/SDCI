@@ -4,6 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ChevronRight, Star } from "lucide-react"
+import { getAssetPath } from "@/lib/paths"
 
 const stats = [
     { value: "300+", label: "Students Guided" },
@@ -78,7 +79,7 @@ export function Results() {
                         <div key={i} className="bg-white rounded-xl overflow-hidden group shadow-2xl">
                             <div className="relative h-64 overflow-hidden">
                                 {/* Use standard img tag for external placeholder or Next Image with configured domain */}
-                                <div className="absolute inset-0 bg-gray-900" style={{ backgroundImage: `url(${cadet.image})`, backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }} />
+                                <div className="absolute inset-0 bg-gray-900" style={{ backgroundImage: `url(${getAssetPath(cadet.image)})`, backgroundSize: 'contain', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }} />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                                     <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-100">
                                         <span className="inline-block px-2 py-1 bg-[var(--color-saffron)] text-white text-xs font-bold rounded-sm mb-2">{cadet.course}</span>

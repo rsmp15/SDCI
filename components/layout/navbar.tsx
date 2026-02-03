@@ -5,6 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Menu, X, Phone, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { getAssetPath } from "@/lib/paths"
 
 const navLinks = [
     { name: "Home", href: "/" },
@@ -29,7 +30,7 @@ export function Navbar() {
                     {/* Logo */}
                     <Link href="/" className="flex-shrink-0 flex items-center gap-3">
                         <Image
-                            src="/logo.jpg"
+                            src={getAssetPath("/logo.jpg")}
                             alt="SDCI Logo"
                             width={48}
                             height={48}
