@@ -61,18 +61,12 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
-          cache: ${{ steps.detect-package-manager.outputs.manager }}
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-        with:
-          # Automatically inject basePath in your Next.js configuration file and re-write
-          # next.config.js/mjs to set the correct basePath.
-          static_site_generator: next
+          node-version: "22"
+          cache: "pnpm"
       - name: Install dependencies
-        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+        run: pnpm install --frozen-lockfile
       - name: Build with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        run: pnpm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
