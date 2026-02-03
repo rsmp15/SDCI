@@ -1,0 +1,192 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Defence Academy Palette */
+  /* Deep Navy Blue: #0a192f */
+  /* Dark Green: #1b4d3e */
+  /* Warm White: #f8f9fa */
+  /* Saffron Accent: #ff9933 */
+  /* Muted Gold: #d4af37 */
+
+  --background: oklch(0.98 0.01 90); /* Warm White */
+  --foreground: oklch(0.15 0.02 260); /* Deep Navy Text */
+  
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0.02 260);
+  
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0.02 260);
+  
+  /* Primary: Deep Navy Blue */
+  --primary: oklch(0.20 0.05 260); 
+  --primary-foreground: oklch(0.98 0.01 90);
+  
+  /* Secondary: Dark Green (Regimental Green) */
+  --secondary: oklch(0.35 0.08 140);
+  --secondary-foreground: oklch(0.98 0.01 90);
+  
+  /* Muted / Neutral */
+  --muted: oklch(0.96 0.01 90);
+  --muted-foreground: oklch(0.40 0.02 260);
+  
+  /* Accent: Saffron */
+  --accent: oklch(0.75 0.18 50); 
+  --accent-foreground: oklch(0.98 0.01 90);
+  
+  /* Destructive */
+  --destructive: oklch(0.6 0.15 25);
+  --destructive-foreground: oklch(0.98 0.01 90);
+
+  --border: oklch(0.90 0.02 90);
+  --input: oklch(0.90 0.02 90);
+  --ring: oklch(0.20 0.05 260);
+  
+  /* Custom Variables for Gold/Saffron specific usages */
+  --color-gold: #d4af37;
+  --color-saffron: #ff9933;
+  --color-navy: #0a192f;
+  --color-green: #1b4d3e;
+
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: oklch(0.12 0.02 260);
+  --foreground: oklch(0.98 0.01 90);
+  
+  --card: oklch(0.15 0.02 260);
+  --card-foreground: oklch(0.98 0.01 90);
+  
+  --popover: oklch(0.15 0.02 260);
+  --popover-foreground: oklch(0.98 0.01 90);
+  
+  --primary: oklch(0.98 0.01 90);
+  --primary-foreground: oklch(0.20 0.05 260);
+  
+  --secondary: oklch(0.35 0.08 140);
+  --secondary-foreground: oklch(0.98 0.01 90);
+  
+  --muted: oklch(0.20 0.02 260);
+  --muted-foreground: oklch(0.70 0.02 260);
+  
+  --accent: oklch(0.75 0.18 50);
+  --accent-foreground: oklch(0.98 0.01 90);
+  
+  --destructive: oklch(0.4 0.15 25);
+  --destructive-foreground: oklch(0.98 0.01 90);
+  
+  --border: oklch(0.25 0.02 260);
+  --input: oklch(0.25 0.02 260);
+  --ring: oklch(0.70 0.02 260);
+}
+
+@theme inline {
+  --font-sans: var(--font-sans), 'Outfit', system-ui, sans-serif;
+  --font-mono: var(--font-mono), 'JetBrains Mono', monospace;
+  --font-heading: var(--font-heading), 'Bebas Neue', sans-serif;
+  
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  --color-gold: var(--color-gold);
+  --color-saffron: var(--color-saffron);
+  --color-navy: var(--color-navy);
+  --color-green: var(--color-green);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Animations that fit the military/disciplined vibe */
+
+@keyframes slideInFromRight {
+  0% { transform: translateX(20px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideUpFade {
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.animate-slide-in-right {
+  animation: slideInFromRight 0.6s ease-out forwards;
+}
+
+.animate-slide-up-fade {
+  animation: slideUpFade 0.6s ease-out forwards;
+}
+
+/* Diagonal stripes for "rank" stripe aesthetic - subtle usage */
+.bg-stripes {
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.05) 75%, transparent 75%, transparent);
+  background-size: 20px 20px;
+}
+
+/* Marquee for ticker */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* Glass effect refinement for Navy background */
+.glass-nav {
+  background: rgba(10, 25, 47, 0.85); /* Navy with opacity */
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.text-gold {
+  color: var(--color-gold);
+}
+
+.bg-navy {
+  background-color: var(--color-navy);
+}
+
+.text-navy {
+  color: var(--color-navy);
+}
