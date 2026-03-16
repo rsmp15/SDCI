@@ -10,22 +10,22 @@ const testimonials = [
         name: "Lt. Vikram Singh",
         role: "NDA 148 Course",
         image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
-        text: "The discipline at SDCI is unmatched. Waking up at 5 AM, the rigorous PT, and the constant motivation from veterans changed my life. I walked in as a boy, and I walked out as a potential officer."
+        text: "Sudhanshu Defence Career Institute is one of the best places in Pune for defence exam preparation. Sudhanshu Sir’s teaching of mathematics is outstanding and very easy to understand. The discipline and motivation here really help aspirants stay focused on their goal of joining the Armed Forces. Highly recommended for NDA and CDS aspirants."
     },
     {
         type: "Parent",
         name: "Mrs. Anjali Gupta",
         role: "Mother of Cadet Rohan (NDA 150)",
         image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
-        text: "Sending my son to SDCI was the best decision. I saw a massive transformation in his confidence and behavior within just 6 months. The faculty takes care of them like their own children."
+        text: "I had a great experience at SDCI. Sudhanshu Sir personally guides every student and keeps motivating us to work hard. The environment is very disciplined and focused. If you are serious about clearing NDA, CDS or AFCAT, this institute is definitely the right place."
     },
     {
         type: "Cadet",
         name: "Cadet Simran Kaur",
         role: "OTA Chennai Selected",
         image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
-        text: "The SSB guidance here is phenomenal. The GTO tasks practice gave me a huge advantage during my actual SSB interview. Highly recommended for any defence aspirant."
-    },
+        text: "Best defence coaching institute in Pune. The guidance, discipline and personal attention given to students is excellent. Sudhanshu Sir’s experience and dedication towards students make SDCI a perfect place for defence aspirants preparing for NDA, CDS, AFCAT and SSB."
+    }
 ]
 
 export function Testimonials() {

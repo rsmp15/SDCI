@@ -15,21 +15,21 @@ const stats = [
 
 const cadets = [
     {
-        name: "Lt. Arjun Singh",
+        name: "Cadet Mahadev Bhosale",
         course: "NDA 149",
         rank: "AIR 12",
         image: "/results/hall-1.jpg",
         quote: "SDCI transformed my personality. The GTO ground training was a game changer."
     },
     {
-        name: "Cadet Priya Sharma",
+        name: "Cadet Sanskar",
         course: "OTA Chennai",
         rank: "AIR 08",
         image: "/results/hall-2.jpg",
         quote: "The faculty here doesn't just teach, they mentor. Grateful for the guidance."
     },
     {
-        name: "Fg Offr. Rahul Verma",
+        name: "Cadet Soham Hudge",
         course: "AFCAT / AFA",
         rank: "Recommended",
         image: "/results/hall-3.jpg",
