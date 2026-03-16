@@ -3,13 +3,14 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Quote, ChevronLeft, ChevronRight } from "lucide-react"
+import { getAssetPath } from "@/lib/paths"
 
 const testimonials = [
     {
         type: "Cadet",
         name: "Lt. Vikram Singh",
         role: "NDA 148 Course",
-        image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
+        image: getAssetPath("/gallery/image-20.jpg"),
         text: "Sudhanshu Defence Career Institute is one of the best places in Pune for defence exam preparation. Sudhanshu Sir’s teaching of mathematics is outstanding and very easy to understand. The discipline and motivation here really help aspirants stay focused on their goal of joining the Armed Forces. Highly recommended for NDA and CDS aspirants."
     },
     {
