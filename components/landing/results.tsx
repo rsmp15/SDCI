@@ -16,21 +16,21 @@ const stats = [
 const cadets = [
     {
         name: "Cadet Mahadev Bhosale",
-        course: "NDA 149",
-        rank: "AIR 12",
+        course: "TECH ENTRY",
+        rank: "Recommended",
         image: "/results/hall-1.jpg",
         quote: "SDCI transformed my personality. The GTO ground training was a game changer."
     },
     {
         name: "Cadet Sanskar",
-        course: "OTA Chennai",
-        rank: "AIR 08",
+        course: "NDA",
+        rank: " ",
         image: "/results/hall-2.jpg",
         quote: "The faculty here doesn't just teach, they mentor. Grateful for the guidance."
     },
     {
         name: "Cadet Soham Hudge",
-        course: "AFCAT / AFA",
+        course: "TES ENTRY",
         rank: "Recommended",
         image: "/results/hall-3.jpg",
         quote: "Sikar's best defence academy. The disciplined environment is exactly what you need."
