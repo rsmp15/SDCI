@@ -55,20 +55,20 @@ export function About() {
                                 <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-[var(--color-gold)] shadow-lg mb-4">
                                     <Image
                                         src={getAssetPath("/director.jpg")}
-                                        alt="Er. Sudhanshu Shekhawat"
+                                        alt="Mr. Sudhanshu Kumar Tiwari"
                                         fill
                                         className="object-cover"
                                     />
                                 </div>
 
                                 <div>
-                                    <h3 className="text-2xl font-bold text-navy">Er. Sudhanshu Shekhawat</h3>
+                                    <h3 className="text-2xl font-bold text-navy">Mr. Sudhanshu Kumar Tiwari</h3>
                                     <p className="text-[var(--color-green)] font-medium">Founder & Director</p>
-                                    <p className="text-xs text-gray-500 mt-1">B.Tech, M.Tech | 7+ Years Exp.</p>
+                                    <p className="text-xs text-gray-500 mt-1">Alumni Sainik School Satara</p>
                                 </div>
 
                                 <div className="flex flex-wrap justify-center gap-2 mt-2">
-                                    {['NDA', 'CDS', 'AFCAT', 'SSR', 'Airman'].map((exam) => (
+                                    {['NDA', 'CDS', 'AFCAT', 'SSR', 'Airman', 'JEE'].map((exam) => (
                                         <span key={exam} className="px-2 py-1 bg-gray-100 text-[10px] uppercase font-bold text-navy rounded-sm">
                                             Cleared {exam}
                                         </span>

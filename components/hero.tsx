@@ -69,7 +69,7 @@ export default function Hero() {
             {/* Stats */}
             <div className="flex flex-wrap gap-8 mt-12 justify-center lg:justify-start animate-fade-in-up delay-500">
               {[
-                { number: "500+", label: "Selections" },
+                { number: "300+", label: "Selections" },
                 { number: "20+", label: "Years Experience" },
                 { number: "98%", label: "Success Rate" },
               ].map((stat) => (
