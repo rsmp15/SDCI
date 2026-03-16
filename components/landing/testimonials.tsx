@@ -10,7 +10,7 @@ const testimonials = [
         type: "Cadet",
         name: "Lt. Vikram Singh",
         role: "NDA 148 Course",
-        image: getAssetPath("/gallery/image-20.jpg"),
+        image: getAssetPath("/images/SDCI_20.jpeg"),
         text: "Sudhanshu Defence Career Institute is one of the best places in Pune for defence exam preparation. Sudhanshu Sir’s teaching of mathematics is outstanding and very easy to understand. The discipline and motivation here really help aspirants stay focused on their goal of joining the Armed Forces. Highly recommended for NDA and CDS aspirants."
     },
     {
