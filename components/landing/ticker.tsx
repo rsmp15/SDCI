@@ -2,10 +2,10 @@ import Link from "next/link"
 import { Bell, FileText, Calendar, ChevronRight } from "lucide-react"
 
 const announcements = [
-    { text: "NDA-1 2026 New Batch starting from 15th February.", type: "New", link: "#" },
-    { text: "SSB Interview Guidance Camp - Limited Seats Available!", type: "Admission", link: "#" },
-    { text: "CDS-2 2025 Written Exam Results Announced - Check Now", type: "Result", link: "#" },
-    { text: "Download NDA-2 2025 Answer Key & Solution PDF", type: "Download", link: "#" },
+    { text: "NDA-1 2026 New Batch starting from 15th February.", type: "New", link: "#admissions" },
+    { text: "SSB Interview Guidance Camp - Limited Seats Available!", type: "Admission", link: "#admissions" },
+    { text: "CDS-2 2025 Written Exam Results Announced - Check Now", type: "Result", link: "#results" },
+    { text: "Download NDA-2 2025 Answer Key & Solution PDF", type: "Download", link: "/SDCI_Brochure.pdf" },
 ]
 
 export function Ticker() {

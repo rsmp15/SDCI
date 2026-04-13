@@ -30,6 +30,8 @@ const formSchema = z.object({
     message: z.string().optional(),
 })
 
+import { sendApplicationEmail } from "@/app/actions/sendEmail"
+
 export default function ApplyPage() {
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [isSubmitted, setIsSubmitted] = useState(false)
@@ -50,15 +52,17 @@ export default function ApplyPage() {
         },
     })
 
-    function onSubmit(values: z.infer<typeof formSchema>) {
+    async function onSubmit(values: z.infer<typeof formSchema>) {
         setIsSubmitting(true)
-        // Simulate API call
-        setTimeout(() => {
-            console.log(values)
-            setIsSubmitting(false)
+        const result = await sendApplicationEmail(values)
+        setIsSubmitting(false)
+
+        if (result.success) {
             setIsSubmitted(true)
             window.scrollTo(0, 0)
-        }, 2000)
+        } else {
+            alert("Error submitting application: " + result.error)
+        }
     }
 
     if (isSubmitted) {

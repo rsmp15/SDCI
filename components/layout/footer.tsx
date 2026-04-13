@@ -45,11 +45,19 @@ export function Footer() {
                             <span className="absolute -bottom-2 left-0 w-12 h-1 bg-[var(--color-saffron)] rounded-full"></span>
                         </h3>
                         <ul className="space-y-3">
-                            {['About Us', 'Our Courses', 'Success Stories', 'Campus Facilities', 'Faculty Team', 'Gallery', 'Admissions 2026'].map((item) => (
-                                <li key={item}>
-                                    <Link href={item === 'Gallery' ? '/gallery' : '#'} className="text-sm hover:text-[var(--color-gold)] transition-colors flex items-center gap-2">
+                            {[
+                                { name: 'About Us', href: '#about' },
+                                { name: 'Our Courses', href: '#courses' },
+                                { name: 'Success Stories', href: '#results' },
+                                { name: 'Campus Facilities', href: '#campus' },
+                                { name: 'Faculty Team', href: '#about' },
+                                { name: 'Gallery', href: '/gallery' },
+                                { name: 'Admissions 2026', href: '#admissions' }
+                            ].map((item) => (
+                                <li key={item.name}>
+                                    <Link href={item.href} className="text-sm hover:text-[var(--color-gold)] transition-colors flex items-center gap-2">
                                         <span className="h-1 w-1 bg-[var(--color-saffron)] rounded-full"></span>
-                                        {item}
+                                        {item.name}
                                     </Link>
                                 </li>
                             ))}
@@ -63,15 +71,22 @@ export function Footer() {
                             <span className="absolute -bottom-2 left-0 w-12 h-1 bg-[var(--color-saffron)] rounded-full"></span>
                         </h3>
                         <ul className="space-y-3">
-                            {['Download Brochure', 'Model Question Papers', 'Previous Year Answer Keys', 'Entrance Test Syllabus', 'Privacy Policy', 'Terms & Conditions'].map((item) => (
-                                <li key={item}>
+                            {[
+                                { name: 'Download Brochure', href: getAssetPath('/SDCI_Brochure.pdf'), target: '_blank' },
+                                { name: 'Model Question Papers', href: '#blog' },
+                                { name: 'Previous Year Answer Keys', href: '#blog' },
+                                { name: 'Entrance Test Syllabus', href: '#blog' },
+                                { name: 'Privacy Policy', href: '#' },
+                                { name: 'Terms & Conditions', href: '#' }
+                            ].map((item) => (
+                                <li key={item.name}>
                                     <Link
-                                        href={item === 'Download Brochure' ? getAssetPath('/SDCI_pamphlet.jpeg') : '#'}
-                                        target={item === 'Download Brochure' ? '_blank' : undefined}
+                                        href={item.href}
+                                        target={item.target}
                                         className="text-sm hover:text-[var(--color-gold)] transition-colors flex items-center gap-2"
                                     >
                                         <span className="h-1 w-1 bg-[var(--color-saffron)] rounded-full"></span>
-                                        {item}
+                                        {item.name}
                                     </Link>
                                 </li>
                             ))}
@@ -103,9 +118,11 @@ export function Footer() {
                             </li>
                         </ul>
                         <div className="mt-6">
-                            <Button className="w-full bg-white/10 hover:bg-white/20 text-white border border-white/10">
-                                Request Call Back
-                            </Button>
+                            <a href="https://wa.me/919572456393" target="_blank" rel="noopener noreferrer">
+                                <Button className="w-full bg-white/10 hover:bg-white/20 text-white border border-white/10">
+                                    Request Call Back
+                                </Button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -116,7 +133,6 @@ export function Footer() {
                     <div className="flex gap-6">
                         <span>Designed with discipline</span>
                     </div>
-                    end
                 </div>
             </div>
         </footer>

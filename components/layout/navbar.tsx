@@ -59,7 +59,7 @@ export function Navbar() {
                         <a href="tel:+919572456393" className="text-white/80 hover:text-white transition-colors">
                             <Phone className="h-5 w-5" />
                         </a>
-                        <Link href="/SDCI_pamphlet.jpeg" target="_blank">
+                        <Link href="/SDCI_Brochure.pdf" target="_blank">
                             <Button variant="outline" className="border-[var(--color-gold)] text-[var(--color-gold)] hover:bg-[var(--color-gold)] hover:text-navy hidden xl:flex">
                                 Download Brochure
                             </Button>
@@ -110,7 +110,7 @@ export function Navbar() {
                             <Link href="/apply">
                                 <Button className="w-full bg-[var(--color-saffron)] hover:bg-orange-600 text-white">APPLY FOR 2026</Button>
                             </Link>
-                            <Link href="/SDCI_pamphlet.jpeg" target="_blank">
+                            <Link href="/SDCI_Brochure.pdf" target="_blank">
                                 <Button variant="outline" className="w-full border-white/20 text-white hover:bg-white/10">Download Brochure</Button>
                             </Link>
                         </div>

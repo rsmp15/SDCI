@@ -1,11 +1,40 @@
+"use client"
+
+import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { CheckCircle2, Shield, Users } from "lucide-react"
+import { CheckCircle2, Shield, Users, Loader2 } from "lucide-react"
+import { sendLeadEmail } from "@/app/actions/sendEmail"
 import { getAssetPath } from "@/lib/paths"
 
 export function Hero() {
+    const [isSubmitting, setIsSubmitting] = useState(false)
+    const [isSubmitted, setIsSubmitted] = useState(false)
+
+    const handleFormSubmit = async (e: React.FormEvent) => {
+        e.preventDefault()
+        setIsSubmitting(true)
+
+        const form = e.target as HTMLFormElement
+        const formData = {
+            name: (form.elements.namedItem('name') as HTMLInputElement).value,
+            mobile: (form.elements.namedItem('mobile') as HTMLInputElement).value,
+            currentClass: (form.querySelector('[name="currentClass"]') as HTMLInputElement)?.value || 'Not selected',
+            targetExam: (form.querySelector('[name="targetExam"]') as HTMLInputElement)?.value || 'Not selected',
+        }
+
+        const result = await sendLeadEmail(formData)
+        
+        setIsSubmitting(false)
+        if (result.success) {
+            setIsSubmitted(true)
+        } else {
+            alert("Payment issue or server error. Please try again or contact us via WhatsApp.")
+        }
+    }
+
     return (
         <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden">
             {/* Background with overlay */}
@@ -48,9 +77,11 @@ export function Hero() {
                                     Apply for 2026 Admissions
                                 </Button>
                             </Link>
-                            <Button size="lg" variant="outline" className="border-white/30 text-[var(--color-saffron)] hover:bg-white/10 text-lg px-8 py-6 backdrop-blur-sm">
-                                Talk to Counsellor
-                            </Button>
+                            <a href="https://wa.me/919572456393" target="_blank" rel="noopener noreferrer">
+                                <Button size="lg" variant="outline" className="border-white/30 text-[var(--color-saffron)] hover:bg-white/10 text-lg px-8 py-6 backdrop-blur-sm">
+                                    Talk to Counsellor
+                                </Button>
+                            </a>
                         </div>
 
                         {/* Trust Badges */}
@@ -87,70 +118,90 @@ export function Hero() {
 
                     {/* Right Lead Form */}
                     <div className="lg:pl-10 animate-slide-in-right">
-                        <div className="bg-white/5 backdrop-blur-xl border border-white/20 p-6 md:p-8 rounded-2xl shadow-2xl relative overflow-hidden">
+                        <div className="bg-white/5 backdrop-blur-xl border border-white/20 p-6 md:p-8 rounded-2xl shadow-2xl relative overflow-hidden min-h-[450px] flex flex-col justify-center">
                             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[var(--color-saffron)] via-[var(--color-gold)] to-[var(--color-green)]" />
 
-                            <div className="mb-6">
-                                <h3 className="text-2xl font-bold text-white mb-1">Start Your Journey</h3>
-                                <p className="text-sm text-gray-300">Request a callback from our defence experts.</p>
-                            </div>
-
-                            <form className="space-y-4">
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div className="space-y-1">
-                                        <label className="text-xs font-medium text-gray-300 ml-1">Name</label>
-                                        <Input placeholder="Cadet Name" className="bg-white/10 border-white/20 text-white placeholder:text-gray-500 focus:border-[var(--color-saffron)] focus:ring-[var(--color-saffron)]" />
+                            {isSubmitted ? (
+                                <div className="text-center space-y-4 py-10 animate-scale-in">
+                                    <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto border border-green-500/30">
+                                        <CheckCircle2 className="w-12 h-12 text-green-400" />
                                     </div>
-                                    <div className="space-y-1">
-                                        <label className="text-xs font-medium text-gray-300 ml-1">Mobile</label>
-                                        <Input placeholder="+91" className="bg-white/10 border-white/20 text-white placeholder:text-gray-500 focus:border-[var(--color-saffron)] focus:ring-[var(--color-saffron)]" />
+                                    <h3 className="text-2xl font-bold text-white">Request Received!</h3>
+                                    <p className="text-gray-300">Our team will call you back shortly for free counselling.</p>
+                                    <Button
+                                        variant="outline"
+                                        className="border-white/20 text-white hover:bg-white/10"
+                                        onClick={() => setIsSubmitted(false)}
+                                    >
+                                        Send another request
+                                    </Button>
+                                </div>
+                            ) : (
+                                <>
+                                    <div className="mb-6">
+                                        <h3 className="text-2xl font-bold text-white mb-1">Start Your Journey</h3>
+                                        <p className="text-sm text-gray-300">Request a callback from our defence experts.</p>
                                     </div>
-                                </div>
 
-                                <div className="space-y-1">
-                                    <label className="text-xs font-medium text-gray-300 ml-1">Current Class</label>
-                                    <Select>
-                                        <SelectTrigger className="bg-white/10 border-white/20 text-white focus:border-[var(--color-saffron)] focus:ring-[var(--color-saffron)]">
-                                            <SelectValue placeholder="Select Class" />
-                                        </SelectTrigger>
-                                        <SelectContent>
-                                            <SelectItem value="10">Class 10th (Passed/Appearing)</SelectItem>
-                                            <SelectItem value="11">Class 11th</SelectItem>
-                                            <SelectItem value="12">Class 12th</SelectItem>
-                                            <SelectItem value="grad">Graduate</SelectItem>
-                                        </SelectContent>
-                                    </Select>
-                                </div>
+                                    <form onSubmit={handleFormSubmit} className="space-y-4">
+                                        <div className="grid grid-cols-2 gap-4">
+                                            <div className="space-y-1">
+                                                <label className="text-xs font-medium text-gray-300 ml-1">Name</label>
+                                                <Input name="name" required placeholder="Cadet Name" className="bg-white/10 border-white/20 text-white placeholder:text-gray-500 focus:border-[var(--color-saffron)] focus:ring-[var(--color-saffron)]" />
+                                            </div>
+                                            <div className="space-y-1">
+                                                <label className="text-xs font-medium text-gray-300 ml-1">Mobile</label>
+                                                <Input name="mobile" required type="tel" placeholder="+91" className="bg-white/10 border-white/20 text-white placeholder:text-gray-500 focus:border-[var(--color-saffron)] focus:ring-[var(--color-saffron)]" />
+                                            </div>
+                                        </div>
 
-                                <div className="space-y-1">
-                                    <label className="text-xs font-medium text-gray-300 ml-1">Target Exam</label>
-                                    <Select>
-                                        <SelectTrigger className="bg-white/10 border-white/20 text-white focus:border-[var(--color-saffron)] focus:ring-[var(--color-saffron)]">
-                                            <SelectValue placeholder="Select Exam" />
-                                        </SelectTrigger>
-                                        <SelectContent>
-                                            <SelectItem value="nda">NDA</SelectItem>
-                                            <SelectItem value="cds">CDS</SelectItem>
-                                            <SelectItem value="afcat">AFCAT</SelectItem>
-                                            <SelectItem value="ssb">SSB Interview</SelectItem>
-                                            <SelectItem value="foundation">Foundation (11th+12th+NDA)</SelectItem>
-                                        </SelectContent>
-                                    </Select>
-                                </div>
+                                        <div className="space-y-1">
+                                            <label className="text-xs font-medium text-gray-300 ml-1">Current Class</label>
+                                            <Select name="currentClass" required>
+                                                <SelectTrigger className="bg-white/10 border-white/20 text-white focus:border-[var(--color-saffron)] focus:ring-[var(--color-saffron)]">
+                                                    <SelectValue placeholder="Select Class" />
+                                                </SelectTrigger>
+                                                <SelectContent>
+                                                    <SelectItem value="10">Class 10th (Passed/Appearing)</SelectItem>
+                                                    <SelectItem value="11">Class 11th</SelectItem>
+                                                    <SelectItem value="12">Class 12th</SelectItem>
+                                                    <SelectItem value="grad">Graduate</SelectItem>
+                                                </SelectContent>
+                                            </Select>
+                                        </div>
 
-                                <div className="space-y-1">
-                                    <label className="text-xs font-medium text-gray-300 ml-1">City/State</label>
-                                    <Input placeholder="e.g. Sikar, Rajasthan" className="bg-white/10 border-white/20 text-white placeholder:text-gray-500 focus:border-[var(--color-saffron)] focus:ring-[var(--color-saffron)]" />
-                                </div>
+                                        <div className="space-y-1">
+                                            <label className="text-xs font-medium text-gray-300 ml-1">Target Exam</label>
+                                            <Select name="targetExam" required>
+                                                <SelectTrigger className="bg-white/10 border-white/20 text-white focus:border-[var(--color-saffron)] focus:ring-[var(--color-saffron)]">
+                                                    <SelectValue placeholder="Select Exam" />
+                                                </SelectTrigger>
+                                                <SelectContent>
+                                                    <SelectItem value="nda">NDA</SelectItem>
+                                                    <SelectItem value="cds">CDS</SelectItem>
+                                                    <SelectItem value="afcat">AFCAT</SelectItem>
+                                                    <SelectItem value="ssb">SSB Interview</SelectItem>
+                                                    <SelectItem value="foundation">Foundation (11th+12th+NDA)</SelectItem>
+                                                </SelectContent>
+                                            </Select>
+                                        </div>
 
-                                <Button className="w-full bg-[var(--color-saffron)] hover:bg-orange-600 text-white font-bold py-6 text-lg mt-2 shadow-lg">
-                                    Get Free Counselling
-                                </Button>
+                                        <Button
+                                            type="submit"
+                                            disabled={isSubmitting}
+                                            className="w-full bg-[var(--color-saffron)] hover:bg-orange-600 text-white font-bold py-6 text-lg mt-2 shadow-lg"
+                                        >
+                                            {isSubmitting ? (
+                                                <Loader2 className="w-6 h-6 animate-spin" />
+                                            ) : "Get Free Counselling"}
+                                        </Button>
 
-                                <p className="text-[10px] text-center text-gray-400 mt-3">
-                                    By submitting, you agree to receive exam updates via WhatsApp/SMS.
-                                </p>
-                            </form>
+                                        <p className="text-[10px] text-center text-gray-400 mt-3">
+                                            By submitting, you agree to receive exam updates via WhatsApp/SMS.
+                                        </p>
+                                    </form>
+                                </>
+                            )}
                         </div>
                     </div>
                 </div>

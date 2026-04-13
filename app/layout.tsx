@@ -21,25 +21,22 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'SDCI - Sudhanshu Defence Career Institute',
-  description: 'Premier Defence Career Coaching Institute - NDA, CDS, AFCAT, SSB Preparation',
-  generator: 'v0.app',
+  title: 'SDCI | Best NDA & CDS Coaching Institute in Pune',
+  description: 'Sudhanshu Defence Career Institute (SDCI) offers premier coaching for NDA, CDS, AFCAT, and SSB. Expert guidance, concept-based teaching, and mentorship for defence aspirants in Pune.',
+  generator: 'SDCI Pune',
+  keywords: ['NDA coaching', 'CDS preparation Pune', 'AFCAT coaching', 'SSB Interview training', 'SDCI Pune', 'Sudhanshu Kumar Tiwari', 'Defence Career Institute'],
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
+        url: '/logo.png',
+        type: 'image/png',
       },
       {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
+        url: '/logo.jpg',
+        type: 'image/jpeg',
       },
     ],
-    apple: '/apple-icon.png',
+    apple: '/logo.png',
   },
 }
 

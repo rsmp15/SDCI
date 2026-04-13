@@ -24,7 +24,7 @@ const cadets = [
     {
         name: "Cadet Sanskar",
         course: "NDA",
-        rank: " ",
+        rank: "  ",
         image: "/results/hall-2.jpg",
         quote: "The faculty here doesn't just teach, they mentor. Grateful for the guidance."
     },

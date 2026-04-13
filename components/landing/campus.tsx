@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { PlayCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -27,10 +28,12 @@ export function Campus() {
                         </p>
                     </div>
                     <div className="flex justify-start lg:justify-end">
-                        <Button className="bg-[var(--color-navy)] hover:bg-[var(--color-navy)]/90 text-white flex items-center gap-2">
-                            <PlayCircle className="w-5 h-5" />
-                            Take a Virtual Tour
-                        </Button>
+                        <Link href="/gallery">
+                            <Button className="bg-[var(--color-navy)] hover:bg-[var(--color-navy)]/90 text-white flex items-center gap-2">
+                                <PlayCircle className="w-5 h-5" />
+                                Take a Virtual Tour
+                            </Button>
+                        </Link>
                     </div>
                 </div>
 

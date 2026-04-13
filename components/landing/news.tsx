@@ -3,6 +3,7 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import { Calendar, Bell, ChevronRight, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 const notifications = [
     { date: "24 Jan", title: "NDA-1 2026 Notification Released", tag: "Exam" },
@@ -48,23 +49,27 @@ export function News() {
                         </div>
                         <div className="space-y-4">
                             {notifications.map((item, i) => (
-                                <div key={i} className="flex gap-4 p-4 rounded-xl bg-gray-50 hover:bg-[var(--color-navy)] hover:text-white transition-colors group cursor-pointer border border-gray-100">
-                                    <div className="flex flex-col items-center justify-center p-2 bg-white rounded-lg shadow-sm min-w-[60px] group-hover:bg-white/10 group-hover:text-white">
-                                        <span className="text-xs font-bold uppercase text-gray-500 group-hover:text-white/80">{item.date.split(" ")[1]}</span>
-                                        <span className="text-xl font-bold text-[var(--color-navy)] group-hover:text-white">{item.date.split(" ")[0]}</span>
+                                <Link href="#contact" key={i} className="block">
+                                    <div className="flex gap-4 p-4 rounded-xl bg-gray-50 hover:bg-[var(--color-navy)] hover:text-white transition-colors group cursor-pointer border border-gray-100 h-full">
+                                        <div className="flex flex-col items-center justify-center p-2 bg-white rounded-lg shadow-sm min-w-[60px] group-hover:bg-white/10 group-hover:text-white">
+                                            <span className="text-xs font-bold uppercase text-gray-500 group-hover:text-white/80">{item.date.split(" ")[1]}</span>
+                                            <span className="text-xl font-bold text-[var(--color-navy)] group-hover:text-white">{item.date.split(" ")[0]}</span>
+                                        </div>
+                                        <div>
+                                            <span className={`text-[10px] font-bold uppercase px-2 py-0.5 rounded-sm mb-1 inline-block ${item.tag === 'Exam' ? 'bg-red-100 text-red-600' : 'bg-green-100 text-green-600'}`}>
+                                                {item.tag}
+                                            </span>
+                                            <h4 className="font-medium text-sm leading-snug">{item.title}</h4>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <span className={`text-[10px] font-bold uppercase px-2 py-0.5 rounded-sm mb-1 inline-block ${item.tag === 'Exam' ? 'bg-red-100 text-red-600' : 'bg-green-100 text-green-600'}`}>
-                                            {item.tag}
-                                        </span>
-                                        <h4 className="font-medium text-sm leading-snug">{item.title}</h4>
-                                    </div>
-                                </div>
+                                </Link>
                             ))}
                         </div>
-                        <Button variant="link" className="w-full mt-4 text-[var(--color-navy)] font-bold">
-                            View All Notification <ChevronRight className="w-4 h-4" />
-                        </Button>
+                        <Link href="#contact">
+                            <Button variant="link" className="w-full mt-4 text-[var(--color-navy)] font-bold">
+                                View All Notification <ChevronRight className="w-4 h-4" />
+                            </Button>
+                        </Link>
                     </div>
 
                     {/* Right: Blog Cards */}
@@ -81,9 +86,11 @@ export function News() {
                                 <div className="p-6">
                                     <h3 className="font-bold text-xl text-navy mb-3 group-hover:text-[var(--color-saffron)] transition-colors">{blog.title}</h3>
                                     <p className="text-gray-600 text-sm leading-relaxed mb-4">{blog.desc}</p>
-                                    <Button variant="ghost" className="p-0 h-auto text-[var(--color-navy)] hover:text-[var(--color-saffron)] hover:bg-transparent font-bold">
-                                        Read Article <ArrowRight className="w-4 h-4 ml-2" />
-                                    </Button>
+                                    <Link href="#admissions">
+                                        <Button variant="ghost" className="p-0 h-auto text-[var(--color-navy)] hover:text-[var(--color-saffron)] hover:bg-transparent font-bold">
+                                            Read Article <ArrowRight className="w-4 h-4 ml-2" />
+                                        </Button>
+                                    </Link>
                                 </div>
                             </div>
                         ))}

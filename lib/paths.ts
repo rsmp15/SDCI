@@ -1,4 +1,4 @@
-export const basePath = '/SDCI'
+export const basePath = ''
 
 /**
  * Prepends the basePath to a given asset path if it starts with a leading slash.
