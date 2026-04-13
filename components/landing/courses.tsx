@@ -63,6 +63,32 @@ const courses = [
                 color: "bg-[var(--color-gold)]"
             }
         ]
+    },
+    {
+        category: "School Entrance",
+        items: [
+            {
+                title: "Sainik School Entrance",
+                target: "For Class 6th & 9th",
+                duration: "1 Year Program",
+                features: ["AISSEE Exam Prep", "Schooling Guidance", "Physical Training", "Personality Development"],
+                color: "bg-orange-600"
+            },
+            {
+                title: "RIMC & RMS Preparation",
+                target: "For Class 6th & 8th",
+                duration: "1 - 2 Year Program",
+                features: ["RIMC Dehradun Focus", "Military School Entrance", "Interview Guidance", "Mental Ability"],
+                color: "bg-red-700"
+            },
+            {
+                title: "SPI (Services Preparatory Institute)",
+                target: "For Class 10th Students",
+                duration: "1 Year Target",
+                features: ["SPI Entrance Exam", "Maharashtra State Selection", "Interview Coaching", "General Studies"],
+                color: "bg-blue-800"
+            }
+        ]
     }
 ]
 

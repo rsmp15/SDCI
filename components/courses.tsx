@@ -61,6 +61,20 @@ const courses = [
     popular: false,
     gradient: "from-orange-600 to-red-600",
   },
+  {
+    title: "SAINIK/RMS/RIMC/SPI",
+    description: "Specialized entrance preparation for prestigious military schools",
+    features: [
+      "Targeted preparation for Class 6th & 9th entrance",
+      "Full coverage of Mathematics, English, & GK",
+      "Intellectual and physical training",
+      "Mock interviews and medical guidance",
+    ],
+    duration: "1-2 Years",
+    icon: Shield,
+    popular: false,
+    gradient: "from-green-600 to-emerald-600",
+  },
 ]
 
 export default function Courses() {
