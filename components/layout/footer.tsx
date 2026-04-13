@@ -14,16 +14,16 @@ export function Footer() {
                         <div className="flex items-center gap-3">
                             <Image
                                 src={getAssetPath("/logo.jpg")}
-                                alt="SDCI Logo"
+                                alt="Sudhanshu Defence Career Institute (SDCI) Logo"
                                 width={60}
                                 height={60}
                                 className="w-14 h-14 object-contain"
                             />
                         </div>
                         <p className="text-sm leading-relaxed text-gray-400">
-                            Forging the next generation of officers for the Indian Armed Forces.
+                            <strong>Sudhanshu Defence Career Institute (SDCI)</strong> is Pune's leading academy for Indian Armed Forces preparation.
                             We provide premier coaching for NDA, CDS, AFCAT and SSB with a holistic approach
-                            to personality development.
+                            to personality development and physical training.
                         </p>
                         <div className="flex gap-4">
                             <Link href="https://www.facebook.com/groups/844644429927643/?ref=share&mibextid=KtfwRi" target="_blank" className="w-10 h-10 rounded-full bg-white/5 hover:bg-[var(--color-saffron)] hover:text-white flex items-center justify-center transition-all duration-300 group">
